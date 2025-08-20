@@ -3,10 +3,9 @@
 >
   <div class="grid justify-content-center">
     <div
-      class="col-12 md:col-6 flex flex-column justify-content-center align-items-center p-4"
+      class="col-12 md:col-6 flex flex-column justify-content-center align-items-center"
     >
     <div class="flex justify-content-center">
-
       <img
         src="https://imgs.search.brave.com/yUw5U3V1QJH8WIaqqXRVLTb2nBUg6vrm4XepuA1qB3s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQy/NjE5MzA1NC92ZWN0/b3IvNDA0LWVycm9y/LWNvbmNlcHQtaGFu/ZC1kcmF3bi1pbGx1/c3RyYXRpb24tc3Rv/Y2staWxsdXN0cmF0/aW9uLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1kRF80VjNa/NnM0Q2FVeGwxSnBM/LTlHSm1XZFlXblRX/Ympsb0U2R1NIaXdV/PQ"
         alt="Página no encontrada"
@@ -16,17 +15,17 @@
       <h2 class="text-4xl font-medium mt-0 mb-3 text-900">
         Página no encontrada
       </h2>
-      <p class="text-xl text-center line-height-3 text-700">
+      <p class="text-xl text-center line-height-3 text-700 m-0">
         Lo sentimos, la página que estás buscando no existe o ha sido movida.
         Por favor, verifica la URL o regresa a la página de inicio.
       </p>
 
-      <div class="mt-5 w-full flex flex-column md:flex-row gap-3">
+      <div class="mt-5 flex flex-column md:flex-row gap-3">
         <p-button
           pButton
           label="Volver al inicio"
           icon="pi pi-home"
-          class="w-full flex justify-content-center"
+          class="w-full flex justify-content-center bg-primary-500 text-white p-2 back_button"
           (click)="redirectToHome()"
         ></p-button>
       </div>

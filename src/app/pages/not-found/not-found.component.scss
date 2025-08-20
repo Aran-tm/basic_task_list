@@ -2,3 +2,12 @@
   width: 350px;
   height: 350px;
 }
+
+.back_button {
+  border-radius: 6px;
+}
+
+.back_button:hover {
+  background-color: var(--p-primary-700) !important;
+  transition: ease-in .2;
+}

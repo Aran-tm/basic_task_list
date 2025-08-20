@@ -7,10 +7,6 @@
     "paths": {
       "@shared/*": ["src/app/shared/*"],
       "@core/*": ["src/app/core/*"],
-      "@services/*": ["src/app/core/services/*"],
-      "@models/*": ["src/app/core/models/*"],
-      "@interfaces/*": ["src/app/core/interfaces/*"],
-      "@pipes/*": ["src/app/core/pipes/*"],
       "@views/*": ["src/app/views/*"],
       "@environments/*": ["src/environments/*"],
       "@assets/*": ["src/assets/*"]
