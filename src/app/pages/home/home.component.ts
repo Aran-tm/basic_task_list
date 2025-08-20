@@ -1,0 +1,18 @@
+import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  imports: [],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
+})
+export class HomeComponent {
+  router = inject(Router);
+
+  constructor() {}
+
+  redirectToHome(): void {
+    this.router.navigateByUrl('/');
+  }
+}
