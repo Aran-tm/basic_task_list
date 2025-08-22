@@ -1,31 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --p-primary-50: #eff6ff;
-  --p-primary-100: #dbeafe;
-  --p-primary-200: #bfdbfe;
-  --p-primary-300: #93c5fd;
-  --p-primary-400: #60a5fa;
-  --p-primary-500: #3b82f6;
-  --p-primary-600: #2563eb;
-  --p-primary-700: #1d4ed8;
-  --p-primary-800: #1e40af;
-  --p-primary-900: #1e3a8a;
-  --p-primary-950: #172554;
+  --p-bgPrimary-50: #eff6ff;
+  --p-bgPrimary-100: #dbeafe;
+  --p-bgPrimary-200: #bfdbfe;
+  --p-bgPrimary-300: #93c5fd;
+  --p-bgPrimary-400: #60a5fa;
+  --p-bgPrimary-500: #3b82f6;
+  --p-bgPrimary-600: #2563eb;
+  --p-bgPrimary-700: #1d4ed8;
+  --p-bgPrimary-800: #1e40af;
+  --p-bgPrimary-900: #1e3a8a;
+  --p-bgPrimary-950: #172554;
 }
 
 /* Custom classes with bg prefix */
-.bg-primary-50 { background-color: var(--p-primary-50) !important; }
-.bg-primary-100 { background-color: var(--p-primary-100) !important; }
-.bg-primary-200 { background-color: var(--p-primary-200) !important; }
-.bg-primary-300 { background-color: var(--p-primary-300) !important; }
-.bg-primary-400 { background-color: var(--p-primary-400) !important; }
-.bg-primary-500 { background-color: var(--p-primary-500) !important; }
-.bg-primary-600 { background-color: var(--p-primary-600) !important; }
-.bg-primary-700 { background-color: var(--p-primary-700) !important; }
-.bg-primary-800 { background-color: var(--p-primary-800) !important; }
-.bg-primary-900 { background-color: var(--p-primary-900) !important; }
-.bg-primary-950 { background-color: var(--p-primary-950) !important; }
+.bg-bgPrimary-50 { background-color: var(--p-bgPrimary-50) !important; }
+.bg-bgPrimary-100 { background-color: var(--p-bgPrimary-100) !important; }
+.bg-bgPrimary-200 { background-color: var(--p-bgPrimary-200) !important; }
+.bg-bgPrimary-300 { background-color: var(--p-bgPrimary-300) !important; }
+.bg-bgPrimary-400 { background-color: var(--p-bgPrimary-400) !important; }
+.bg-bgPrimary-500 { background-color: var(--p-bgPrimary-500) !important; }
+.bg-bgPrimary-600 { background-color: var(--p-bgPrimary-600) !important; }
+.bg-bgPrimary-700 { background-color: var(--p-bgPrimary-700) !important; }
+.bg-bgPrimary-800 { background-color: var(--p-bgPrimary-800) !important; }
+.bg-bgPrimary-900 { background-color: var(--p-bgPrimary-900) !important; }
+.bg-bgPrimary-950 { background-color: var(--p-bgPrimary-950) !important; }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 

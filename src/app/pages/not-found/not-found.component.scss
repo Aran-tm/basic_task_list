@@ -7,7 +7,15 @@
   border-radius: 6px;
 }
 
-.back_button:hover {
-  background-color: var(--p-primary-700) !important;
-  transition: ease-in .2;
+::ng-deep {
+  p-button button {
+    padding: 0;
+    border: var(--p-bgPrimary-500) !important;;
+    background: var(--p-bgPrimary-500) !important;
+  }
+
+  p-button button:hover {
+    background: var(--p-bgPrimary-700) !important;
+    border: var(--p-bgPrimary-500) !important;
+  }
 }
