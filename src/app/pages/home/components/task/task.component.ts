@@ -41,5 +41,6 @@ export class TaskComponent {
   /** Go back to main basic task list */
   goBack(event: boolean): void {
     this.isTouched.set(event);
+    this.isTyping.set(event);
   }
 }
