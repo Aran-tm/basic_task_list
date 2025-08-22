@@ -1,9 +1,10 @@
 import { Router } from '@angular/router';
 import { Component, inject } from '@angular/core';
+import { TaskComponent } from "./components/task/task.component";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [TaskComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
