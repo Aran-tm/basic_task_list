@@ -1,3 +1,36 @@
 .p-card {
-  border-radius: 16px;
+  border-radius: 4px;
+}
+
+.customText {
+  color: #8a94a6;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+
+  // Remove normal border
+  &:enabled:focus {
+    box-shadow: none;
+    border: 0;
+    outline: none;
+  }
+
+  // Remove border on hover
+  &:enabled:hover {
+    border: 0;
+  }
+
+  // Remove border in normal state
+  &:enabled {
+    border: 0;
+  }
+
+  // Remove default outline
+  &:focus {
+    outline: none;
+  }
 }

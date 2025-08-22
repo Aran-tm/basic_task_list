@@ -1,18 +1,30 @@
-<div>
+<!-- Main Container -->
+<div class="flex justify-content-between">
+  <!-- Typed Input text -->
   <div
-    class="col-12 flex align-items-center gap-3 p-0"
+    class="col-12 flex align-items-center gap-3 p-0 inputContainer"
     (click)="addTask()"
   >
     <div class="flex">
       <img src="/assets/icons/sum-icon.svg" alt="Sum Icon" />
     </div>
-  
+
     <input
       class="customText w-full"
       type="text"
       pInputText
       placeholder="Type to add new task"
       [(ngModel)]="typedValue"
+    />
+  </div>
+
+  <!-- Avatar -->
+  <div>
+    <p-avatar
+      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+      class="mr-2"
+      size="large"
+      shape="circle"
     />
   </div>
 </div>

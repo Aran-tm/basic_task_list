@@ -3,8 +3,8 @@
   color: #8a94a6;
   font-family: Roboto;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   box-shadow: none;
   border: 0;
   padding: 0;
@@ -35,5 +35,47 @@
 ::ng-deep {
   p-card .p-card-body {
     padding: 0;
+  }
+
+  p-avatar img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* Estilo para el avatar deshabilitado */
+::ng-deep .disabled-avatar {
+  opacity: 0.5;
+  filter: grayscale(100%) brightness(150%);
+}
+
+/* Opcional: deshabilitar eventos de ratón */
+::ng-deep .disabled-avatar .p-avatar {
+  pointer-events: none;
+}
+
+.customHeight {
+  height: 4rem;
+}
+
+.inputContainer {
+  max-width: 21.25rem;
+}
+
+@media screen and (max-width: 425px) {
+  .inputContainer {
+    max-width: 8.25rem;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .inputContainer {
+    max-width: 18.25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inputContainer {
+    max-width: 21.25rem;
   }
 }

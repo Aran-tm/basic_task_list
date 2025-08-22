@@ -10,12 +10,18 @@
 ::ng-deep {
   p-button button {
     padding: 0;
-    border: var(--p-bgPrimary-500) !important;;
+    border: var(--p-bgPrimary-500) !important;
     background: var(--p-bgPrimary-500) !important;
   }
 
   p-button button:hover {
     background: var(--p-bgPrimary-700) !important;
     border: var(--p-bgPrimary-500) !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .customHeight {
+    height: 80vh;
   }
 }
