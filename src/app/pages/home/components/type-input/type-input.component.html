@@ -15,6 +15,7 @@
       pInputText
       placeholder="Type to add new task"
       [(ngModel)]="typedValue"
+      (input)="onInputChange($event)"
     />
   </div>
 

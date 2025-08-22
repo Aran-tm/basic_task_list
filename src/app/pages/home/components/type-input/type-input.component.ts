@@ -11,6 +11,7 @@ import { AvatarModule } from 'primeng/avatar';
 })
 export class TypeInputComponent {
   addATask = output<boolean>();
+  isTyping = output<boolean>();
   taskValue = signal<boolean>(false);
   typedValue = signal<string>('');
 
@@ -22,6 +23,13 @@ export class TypeInputComponent {
   addTask(): void {
     this.addATask.emit(true);
     this.taskValue.set(true);
-    console.log(`Task value`, this.taskValue())
+  }
+
+  /** It is used to detect whether a character is being written or not. */
+  onInputChange(event: Event): void {
+
+    this.typedValue().trim().length > 0
+      ? this.isTyping.emit(true)
+      : this.isTyping.emit(false)
   }
 }

@@ -12,6 +12,6 @@
   <!-- Button Action Row -->
   <div class="flex gap-2">
     <p-button [ngClass]="'button-bg-cancel'" (click)="cancel()">Cancel</p-button>
-    <p-button [ngClass]="'button-bg-ok'" (click)="add()">Ok</p-button>
+    <p-button [ngClass]="'button-bg-ok'" (click)="disableOptions() ? goBack() : add()">{{ disableOptions() ? 'Ok' : 'Add'}}</p-button>
   </div>
 </div>

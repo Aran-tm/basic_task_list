@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, computed, input, signal, output } from '@angular/core';
 import { IButton } from '@core/interface/button.interface';
 import { ButtonModule } from 'primeng/button';
 
@@ -10,38 +10,40 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './options.component.scss',
 })
 export class OptionsComponent {
-  disableOptions = signal<boolean>(true);
+  isTyping = input<boolean>(false);
+  disableOptions = computed(() => !this.isTyping());
   somethingTyped = signal<string>('');
+  addAction = output<boolean>();
   buttons: IButton[] = [
     {
       id: 1,
       icon: '/assets/icons/expand-icon.svg',
       name: 'Open',
-      bg: '#EAF0F5'
+      bg: '#EAF0F5',
     },
     {
       id: 2,
       icon: '/assets/icons/calendar-icon.svg',
       name: 'Today',
-      bg: 'transparent'
+      bg: 'transparent',
     },
     {
       id: 3,
       icon: '/assets/icons/lock-icon.svg',
       name: 'Public',
-      bg: 'transparent'
+      bg: 'transparent',
     },
     {
       id: 4,
       icon: '/assets/icons/sun-icon.svg',
       name: 'Normal',
-      bg: 'transparent'
+      bg: 'transparent',
     },
     {
       id: 5,
       icon: '/assets/icons/eye-icon.svg',
       name: 'Extimation',
-      bg: 'transparent'
+      bg: 'transparent',
     },
   ];
 
@@ -50,6 +52,13 @@ export class OptionsComponent {
   /** Add a basic Task */
   add(): void {}
 
+  /** Go back, main Basic Task List */
+  goBack(): void {
+    this.addAction.emit(false);
+  }
+
   /** Cancel current action */
-  cancel(): void {}
+  cancel(): void {
+    this.addAction.emit(false);
+  }
 }

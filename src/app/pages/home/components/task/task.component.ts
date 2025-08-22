@@ -17,17 +17,29 @@ import { OptionsComponent } from "../options/options.component";
     FormsModule,
     ReactiveFormsModule,
     TypeInputComponent,
-    OptionsComponent
-],
+    OptionsComponent,
+  ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
 })
 export class TaskComponent {
   isTouched = signal<boolean>(false);
+  isTyping = signal<boolean>(false);
 
-  constructor() { }
-  
-  addATask(event: boolean) {
+  constructor() {}
+
+  /** Detect if add a task or not */
+  addATask(event: boolean): void {
+    this.isTouched.set(event);
+  }
+
+  /** Detect if user is typing or not */
+  isTypingFunction(event: boolean): void {
+    this.isTyping.set(event);
+  }
+
+  /** Go back to main basic task list */
+  goBack(event: boolean): void {
     this.isTouched.set(event);
   }
 }
