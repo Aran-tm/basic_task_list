@@ -1,0 +1,39 @@
+/** Main Task Component Styles */
+.customText {
+  color: #8a94a6;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+
+  // Remove normal border
+  &:enabled:focus {
+    box-shadow: none;
+    border: 0;
+    outline: none;
+  }
+
+  // Remove border on hover
+  &:enabled:hover {
+    border: 0;
+  }
+
+  // Remove border in normal state
+  &:enabled {
+    border: 0;
+  }
+
+  // Remove default outline
+  &:focus {
+    outline: none;
+  }
+}
+
+::ng-deep {
+  p-card .p-card-body {
+    padding: 0;
+  }
+}

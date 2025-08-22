@@ -1,34 +1,5 @@
-<div class="grid">
-  <div
-    class="col-12 customCol flex align-items-center gap-3"
-    (click)="addTask()"
-  >
-    <div class="flex">
-      <img src="/assets/icons/sum-icon.svg" alt="Sum Icon" />
-    </div>
+<app-type-input />
 
-    @if(!addATask()){
-    <span class="customText">Type to add new task</span>
-    } @else {
-    <input
-      class="customText"
-      type="text"
-      pInputText
-      placeholder="Type to add new task"
-      [(ngModel)]="typedValue"
-    />
-    }
-  </div>
-</div>
-
-<p-card header="Simple Card">
-    <p class="m-0">
-        Lorem ipsum dolor sit amet...
-    </p>
-</p-card>
-
-<p-card header="Simple Card" [style]="{ width: '360px' }">
-    <p class="m-0">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-    </p>
-</p-card>
+<!-- <p-card [style]="{ width: '360px' }">
+  <app-type-input />
+</p-card> -->

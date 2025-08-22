@@ -1,0 +1,18 @@
+<div>
+  <div
+    class="col-12 flex align-items-center gap-3 p-0"
+    (click)="addTask()"
+  >
+    <div class="flex">
+      <img src="/assets/icons/sum-icon.svg" alt="Sum Icon" />
+    </div>
+  
+    <input
+      class="customText w-full"
+      type="text"
+      pInputText
+      placeholder="Type to add new task"
+      [(ngModel)]="typedValue"
+    />
+  </div>
+</div>
