@@ -43,6 +43,18 @@
   font-family: Roboto;
   font-size: 1rem;
   line-height: 1.5rem;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.editable-div {
+  flex: 1;
+  min-height: 28px;
+  padding: 6px 0;
+  font-family: Roboto;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: #2d3748;
   outline: none;
   white-space: nowrap;
