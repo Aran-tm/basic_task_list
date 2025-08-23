@@ -1,33 +1,30 @@
-<!-- Main Container -->
-<div class="flex justify-content-between">
-  <!-- Typed Input text -->
-  <div
-    class="col-12 flex align-items-center gap-3 p-0 inputContainer"
-    (click)="addTask()"
-  >
-    <div class="flex">
+<div class="flex-container">
+  <div class="input-section">
+    <div class="icon-container">
       <img src="/assets/icons/sum-icon.svg" alt="Sum Icon" />
     </div>
 
-    <input
-      class="customText w-full"
-      type="text"
-      pInputText
-      placeholder="Type to add new task"
-      [(ngModel)]="typedValue"
-      (input)="onInputChange($event)"
-    />
+    <div class="input-wrapper">
+      <div 
+        #editableDiv
+        contenteditable="true"
+        (input)="onInput()"
+        (keydown)="onKeydown($event)"
+        (blur)="onBlur()"
+        (focus)="onFocus()"
+        class="editable-div"
+        dir="ltr"
+        (paste)="onPaste($event)">
+      </div>
+      <div class="placeholder" *ngIf="showPlaceholder">Type to add new task</div>
+    </div>
   </div>
 
-  <!-- Avatar -->
-  <div>
-    <p-avatar
-      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-      class="mr-2"
-      size="large"
-      shape="circle"
-      [style.opacity]="typedValue().trim().length > 0 ? '1' : '0.5'"
-      [style.cursor]="typedValue().trim().length > 0 ? 'pointer' : 'default'"
-    />
+  <div class="avatar-section">
+    <div class="avatar" 
+         [style.opacity]="typedValue().trim().length > 0 ? '1' : '0.5'"
+         [style.cursor]="typedValue().trim().length > 0 ? 'pointer' : 'default'">
+      <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar">
+    </div>
   </div>
 </div>
