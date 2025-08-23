@@ -50,7 +50,10 @@ export class OptionsComponent {
   constructor() {}
 
   /** Add a basic Task */
-  add(): void {}
+  add(): void {
+    // Same behavior as for other features.
+    this.addAction.emit(false);
+  }
 
   /** Go back, main Basic Task List */
   goBack(): void {

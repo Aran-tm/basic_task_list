@@ -30,26 +30,17 @@ export class TypeInputComponent {
 
   constructor() {}
 
-  /**
-   * Allows you to manage a new task
-   */
-  addTask(): void {
-    this.addATask.emit(true);
-    this.taskValue.set(true);
-  }
-
   /** It is used to detect whether a character is being written or not. */
-  onInput() {
+  onInput(): void {
     const text = this.editableDiv.nativeElement.innerText;
     this.typedValue.set(text);
 
     this.wordsArray = text
-      .split(/(\s+)/) 
+      .split(/(\s+)/)
       .filter((word: string) => word.length > 0);
 
     let newHtml = '';
     this.wordsArray.forEach((word: string) => {
-
       if (word.trim().length === 0) {
         newHtml += word;
       } else if (word.includes('@gmail')) {
@@ -58,7 +49,7 @@ export class TypeInputComponent {
         newHtml += `<span style="color: #17AD7C">${word}</span>`;
       } else if (word.includes('#')) {
         newHtml += `<span style="color: #8954EB">${word}</span>`;
-      } else if (word.includes('www.')) {
+      } else if (word.includes('www.') || word.includes('https://')) {
         newHtml += `<span style="color: #4FA7FF">${word}</span>`;
       } else {
         newHtml += `<span style="color: #2d3748">${word}</span>`;
@@ -73,12 +64,8 @@ export class TypeInputComponent {
 
     this.showPlaceholder = text.trim().length === 0;
 
-    const hasMention = this.wordsArray.some((word) => word.includes('@'));
-    if (hasMention) {
-      this.editableDiv.nativeElement.classList.add('mention-active');
-    } else {
-      this.editableDiv.nativeElement.classList.remove('mention-active');
-    }
+    /** Saving the basic Task Into Local Storage  :) */
+    localStorage.setItem("basic_task", this.typedValue());
   }
 
   private setHtmlContent(html: string): void {
@@ -134,30 +121,27 @@ export class TypeInputComponent {
     return textNodes;
   }
 
-  onKeydown(event: KeyboardEvent) {
+  onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       event.preventDefault();
       this.isTyping.emit(false);
 
       if (this.typedValue().trim().length > 0) {
-        console.log('Texto a enviar:', this.typedValue());
-
-        this.editableDiv.nativeElement.innerText = '';
         this.typedValue.set('');
         this.showPlaceholder = true;
       }
     }
   }
 
-  onBlur() {
+  onBlur(): void {
     this.showPlaceholder = this.typedValue().trim().length === 0;
   }
 
-  onFocus() {
+  onFocus(): void {
     this.showPlaceholder = false;
   }
 
-  onPaste(event: ClipboardEvent) {
+  onPaste(event: ClipboardEvent): void {
     event.preventDefault();
 
     const pastedText = event.clipboardData?.getData('text/plain') || '';
