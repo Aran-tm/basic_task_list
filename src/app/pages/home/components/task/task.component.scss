@@ -38,9 +38,50 @@
   padding: 10px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  background: #FAFBFB;
+  background: #fafbfb;
 
   @media screen and (max-width: 767px) {
     height: 20rem;
+  }
+}
+
+// Styles for different types of words
+:host ::ng-deep {
+  .email {
+    background: #ffe6c7 !important;
+    color: #f8a946 !important;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .mention {
+    background: #adf0d9 !important;
+    color: #17ad7c !important;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .hashtag {
+    background: #dbc7ff !important;
+    color: #8954eb !important;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .link {
+    background: #d6ebff !important;
+    color: #4fa7ff !important;
+    border-radius: 12px;
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .normal {
+    color: #2d3748 !important;
+    cursor: pointer;
   }
 }

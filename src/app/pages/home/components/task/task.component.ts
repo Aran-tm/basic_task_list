@@ -1,3 +1,4 @@
+import { SafeHtmlPipe } from '@core/pipe/safe.pipe';
 import { ITask } from '@core/interfaces/task.interface';
 import { Component, signal, OnInit, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
@@ -9,6 +10,7 @@ import { TypeInputComponent } from '../type-input/type-input.component';
 import { OptionsComponent } from "../options/options.component";
 import { TaskService } from '@core/services/task.service';
 import { Subscription } from 'rxjs';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-task',
@@ -21,6 +23,8 @@ import { Subscription } from 'rxjs';
     ReactiveFormsModule,
     TypeInputComponent,
     OptionsComponent,
+    CheckboxModule,
+    SafeHtmlPipe
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
@@ -69,7 +73,44 @@ export class TaskComponent implements OnInit {
     this.isTyping.set(event);
   }
 
+  /** Recieve the item emited */
   recieveTypedFunction(event: string): void {
-    this.typedValue.set(event)
+    this.typedValue.set(event);
+  }
+
+  /** Set the styles for each task item */
+  setTaskStyle(text: string): string {
+    // Dividir el texto en palabras, conservando los espacios
+    const words = text.split(/(\s+)/).filter((word) => word.length > 0);
+
+    let result = '';
+
+    words.forEach((word) => {
+      // Verificar el tipo de palabra y aplicar la clase correspondiente
+      if (word.trim().length === 0) {
+        result += word; // Mantener los espacios
+      } else if (
+        word.includes('@gmail') ||
+        word.includes('@hotmail') ||
+        word.includes('@yahoo') ||
+        (word.includes('@') && word.includes('.') && word.length > 5)
+      ) {
+        result += `<span class="email">${word}</span>`;
+      } else if (word.startsWith('@')) {
+        result += `<span class="mention">${word}</span>`;
+      } else if (word.startsWith('#')) {
+        result += `<span class="hashtag">${word}</span>`;
+      } else if (
+        word.startsWith('www.') ||
+        word.startsWith('http://') ||
+        word.startsWith('https://')
+      ) {
+        result += `<span class="link"><a href="${word}" target="_blank">${word}</a></span>`;
+      } else {
+        result += `<span class="normal">${word}</span>`;
+      }
+    });
+
+    return result;
   }
 }
