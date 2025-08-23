@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { ITask } from '@core/interfaces/task.interface';
+import { Component, signal, OnInit, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -6,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeInputComponent } from '../type-input/type-input.component';
 import { OptionsComponent } from "../options/options.component";
+import { TaskService } from '@core/services/task.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -22,11 +25,33 @@ import { OptionsComponent } from "../options/options.component";
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
   isTouched = signal<boolean>(false);
   isTyping = signal<boolean>(false);
+  typedValue = signal<string>('');
+  taskList: ITask[] = [];
+
+  taskService = inject(TaskService);
+  tasksSubscription!: Subscription;
 
   constructor() {}
+
+  ngOnInit(): void {
+    this.subscribeObservers();
+  }
+
+  // Subscribe to task changes
+  subscribeObservers(): void {
+    this.tasksSubscription = this.taskService.getTasks().subscribe(
+      (tasks: ITask[]) => {
+        this.isTouched.set(false); // This allows you to return to the initial view
+        this.taskList = tasks;
+      },
+      (error) => {
+        console.error('Error getting tasks:', error);
+      }
+    );
+  }
 
   /** Detect if add a task or not */
   addATask(event: boolean): void {
@@ -42,5 +67,9 @@ export class TaskComponent {
   goBack(event: boolean): void {
     this.isTouched.set(event);
     this.isTyping.set(event);
+  }
+
+  recieveTypedFunction(event: string): void {
+    this.typedValue.set(event)
   }
 }

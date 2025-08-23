@@ -1,3 +1,4 @@
+import { TaskService } from '@core/services/task.service';
 import { ITask } from '@core/interfaces/task.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -7,6 +8,7 @@ import {
   output,
   ElementRef,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { AvatarModule } from 'primeng/avatar';
 
@@ -19,14 +21,16 @@ import { AvatarModule } from 'primeng/avatar';
 export class TypeInputComponent {
   addATask = output<boolean>();
   isTyping = output<boolean>();
+  sendTypedValue = output<string>();
   taskValue = signal<boolean>(false);
   typedValue = signal<string>('');
-  setColor = signal<string>('');
 
   wordsArray: string[] = [];
   taskList: ITask[] = [];
   showPlaceholder = true;
   @ViewChild('editableDiv') editableDiv!: ElementRef;
+
+  taskService = inject(TaskService);
 
   constructor() {}
 
@@ -62,10 +66,11 @@ export class TypeInputComponent {
       ? this.isTyping.emit(true)
       : this.isTyping.emit(false);
 
-    this.showPlaceholder = text.trim().length === 0;
+    this.typedValue().trim().length > 0
+      ? this.sendTypedValue.emit(this.typedValue())
+      : this.sendTypedValue.emit('');
 
-    /** Saving the basic Task Into Local Storage  :) */
-    localStorage.setItem("basic_task", this.typedValue());
+    this.showPlaceholder = text.trim().length === 0;
   }
 
   private setHtmlContent(html: string): void {
@@ -124,11 +129,12 @@ export class TypeInputComponent {
   onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       event.preventDefault();
-      this.isTyping.emit(false);
 
-      if (this.typedValue().trim().length > 0) {
+      if (this.typedValue().trim().length > 0) {  
+        // Add a task into Service
+        this.taskService.addTask(this.typedValue());
+        this.isTyping.emit(false);
         this.typedValue.set('');
-        this.showPlaceholder = true;
       }
     }
   }

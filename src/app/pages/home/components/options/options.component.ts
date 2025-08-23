@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, input, signal, output } from '@angular/core';
+import { Component, computed, input, signal, output, inject } from '@angular/core';
 import { IButton } from '@core/interfaces/button.interface';
+import { TaskService } from '@core/services/task.service';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
@@ -11,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class OptionsComponent {
   isTyping = input<boolean>(false);
+  typedValue = input<string>('');
   disableOptions = computed(() => !this.isTyping());
   somethingTyped = signal<string>('');
   addAction = output<boolean>();
@@ -47,11 +49,14 @@ export class OptionsComponent {
     },
   ];
 
+  taskService = inject(TaskService);
+
   constructor() {}
 
   /** Add a basic Task */
   add(): void {
     // Same behavior as for other features.
+    this.taskService.addTask(this.typedValue());
     this.addAction.emit(false);
   }
 
