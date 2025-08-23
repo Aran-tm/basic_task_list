@@ -1,3 +1,4 @@
+import { ITask } from '@core/interfaces/task.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -23,6 +24,7 @@ export class TypeInputComponent {
   setColor = signal<string>('');
 
   wordsArray: string[] = [];
+  taskList: ITask[] = [];
   showPlaceholder = true;
   @ViewChild('editableDiv') editableDiv!: ElementRef;
 

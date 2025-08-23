@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, input, signal, output } from '@angular/core';
-import { IButton } from '@core/interface/button.interface';
+import { IButton } from '@core/interfaces/button.interface';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
