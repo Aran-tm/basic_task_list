@@ -50,16 +50,16 @@ export class TypeInputComponent {
 
       if (word.trim().length === 0) {
         newHtml += word;
+      } else if (word.includes('@gmail')) {
+        newHtml += `<span style="color: #F8A946">${word}</span>`;
       } else if (word.includes('@')) {
         newHtml += `<span style="color: #17AD7C">${word}</span>`;
       } else if (word.includes('#')) {
         newHtml += `<span style="color: #8954EB">${word}</span>`;
-      } else if (word.includes('@gmail')) {
-        newHtml += `<span style="color: #F8A946">${word}</span>`;
       } else if (word.includes('www.')) {
-        newHtml += `<span style="color: #8954EB">${word}</span>`;
-      } else {
         newHtml += `<span style="color: #4FA7FF">${word}</span>`;
+      } else {
+        newHtml += `<span style="color: #2d3748">${word}</span>`;
       }
     });
 
