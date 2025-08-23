@@ -1,16 +1,16 @@
-<div class="flex justify-content-between">
+<div class="flex justify-content-between flex-column md:flex-row">
   <!-- Options Row -->
-  <div class="flex gap-2">
+  <div class="flex flex-column md:flex-row">
     @for (butt of buttons; track butt.id) {      
-      <p-button [disabled]="disableOptions()" [ngClass]="{'has-background': butt.bg !== 'transparent'}">
-        <img [src]="butt.icon" [alt]="butt.name">
-        <span class='text-color-customer'>{{ butt.name }}</span>
+      <p-button [disabled]="disableOptions()" [ngClass]="{'has-background': butt.bg !== 'transparent', 'mr-3': butt.bg !== 'transparent'}">
+        <img class="imageClass" [src]="butt.icon" [alt]="butt.name">
+        <span class='custom-color'>{{ butt.name }}</span>
       </p-button>
     }
   </div>
 
   <!-- Button Action Row -->
-  <div class="flex gap-2">
+  <div class="flex gap-2 flex-column md:flex-row mt-4 md:mt-0">
     <p-button [ngClass]="'button-bg-cancel'" (click)="cancel()">Cancel</p-button>
     <p-button [ngClass]="'button-bg-ok'" (click)="disableOptions() ? goBack() : add()">{{ disableOptions() ? 'Ok' : 'Add'}}</p-button>
   </div>

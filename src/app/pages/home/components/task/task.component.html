@@ -11,14 +11,14 @@
       class="customText w-full"
       type="text"
       pInputText
-      placeholder="Type to add new task"
+      placeholder="Add new task"
     />
   </div>
 } @else {
   <p-card [style]="{ 'width': '100%', 'max-width': '100%', 'height': '4rem', 'padding': '10px', 'border-bottom-right-radius': '0', 'border-bottom-left-radius': '0' }">
     <app-type-input (isTyping)="isTypingFunction($event)" />
   </p-card>
-  <p-card [style]="{ 'width': '100%', 'max-width': '100%', 'height': '4rem', 'padding': '10px', 'border-top-right-radius': '0', 'border-top-left-radius': '0', 'background': '#FAFBFB' }">
+  <p-card class="secondCard">
     <app-options (addAction)="goBack($event)" [isTyping]="isTyping()" />
   </p-card>
 }

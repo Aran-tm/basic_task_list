@@ -1,32 +1,46 @@
-.text-color-customer {
+.custom-color {
   color: #8a94a6;
 }
 
+.imageClass {
+  width: 22px;
+  height: 22px;
+}
+
 ::ng-deep {
-  .has-background button {
-    background: #EAF0F5 !important;
-    border-color: #EAF0F5 !important;
+  p-button {
+    display: flex;
+    justify-content: center;
   }
-  
+
+  .has-background button {
+    background: #eaf0f5 !important;
+    border-color: #eaf0f5 !important;
+    width: 100%;
+    max-width: 21.875rem;
+  }
+
   p-button button {
     background: transparent !important;
     border-color: transparent !important;
+    width: 100%;
+    max-width: 21.875rem;
   }
 
   .button-bg-cancel button {
-     background: var(--bg-secondary) !important;
-     border: none;
-     color: black;
-     border-radius: 4px;
-     height: 100%;
-     width: 70px;
-     
-     &:hover {
-       background: var(--bg-secondary-hover) !important;
-       cursor: pointer;
-       color: black !important;
-       transition: background-color 0.3s ease;
-     }
+    background: var(--bg-secondary) !important;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+
+    &:hover {
+      background: var(--bg-secondary-hover) !important;
+      cursor: pointer;
+      color: black !important;
+      transition: background-color 0.3s ease;
+    }
   }
 
   .button-bg-ok button {
@@ -34,12 +48,19 @@
     border: none;
     border-radius: 4px;
     height: 100%;
-    width: 40px;
-    
-     &:hover {
-       background: var(--p-bgPrimary-400) !important;
-       cursor: pointer;
-       transition: background-color 0.3s ease;
-     }
+    width: 100%;
+
+    &:hover {
+      background: var(--p-bgPrimary-400) !important;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imageClass {
+    width: 18px;
+    height: 18px;
   }
 }
