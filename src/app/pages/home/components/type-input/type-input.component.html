@@ -26,6 +26,8 @@
       class="mr-2"
       size="large"
       shape="circle"
+      [style.opacity]="typedValue().trim().length > 0 ? '1' : '0.5'"
+      [style.cursor-pointer]="typedValue().trim().length > 0 ? '1' : '0.5'"
     />
   </div>
 </div>
