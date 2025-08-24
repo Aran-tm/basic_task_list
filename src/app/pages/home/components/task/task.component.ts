@@ -38,6 +38,9 @@ export class TaskComponent implements OnInit {
   taskService = inject(TaskService);
   tasksSubscription!: Subscription;
 
+  mailIcon: string = '/assets/icons/mail-icon.svg'; 
+  linkIcon: string = '/assets/icons/link-icon.svg'; 
+
   constructor() {}
 
   ngOnInit(): void {
@@ -95,7 +98,7 @@ export class TaskComponent implements OnInit {
         word.includes('@yahoo') ||
         (word.includes('@') && word.includes('.') && word.length > 5)
       ) {
-        result += `<span class="email">${word}</span>`;
+        result += `<span class="email"><img src="${this.mailIcon}"></img>Mail</span>`;
       } else if (word.startsWith('@')) {
         result += `<span class="mention">${word}</span>`;
       } else if (word.startsWith('#')) {
@@ -105,7 +108,7 @@ export class TaskComponent implements OnInit {
         word.startsWith('http://') ||
         word.startsWith('https://')
       ) {
-        result += `<span class="link"><a href="${word}" target="_blank">${word}</a></span>`;
+        result += `<span class="link"><a href="${word}" target="_blank"><img src="${this.linkIcon}"></img>Link</a></span>`;
       } else {
         result += `<span class="normal">${word}</span>`;
       }
