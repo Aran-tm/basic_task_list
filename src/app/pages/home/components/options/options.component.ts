@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, input, signal, output, inject } from '@angular/core';
 import { IButton } from '@core/interfaces/button.interface';
+import { ITask } from '@core/interfaces/task.interface';
 import { TaskService } from '@core/services/task.service';
 import { ButtonModule } from 'primeng/button';
 

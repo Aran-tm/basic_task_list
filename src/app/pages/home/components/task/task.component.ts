@@ -81,6 +81,10 @@ export class TaskComponent implements OnInit {
 
   /** Go back to main basic task list */
   goBack(event: boolean): void {
+    this.editedTask.set({
+      id: 0,
+      text: ''
+    });
     this.isTouched.set(event);
     this.isTyping.set(event);
   }

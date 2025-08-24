@@ -44,7 +44,7 @@
 
 <!-- Edited Task -->
 @if(editedTask().text.length > 0) {
-<div class="flex align-items-center gap-2" style="padding: 20px;">
+<div class="flex align-items-center gap-2" style="padding: 20px; box-shadow: var(--p-card-shadow)">
   <p-checkbox [binary]="true" />
   <div [innerHTML]="editedTaskStyle(editedTask().text) | safeHtml"></div>
 </div>
