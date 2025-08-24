@@ -33,6 +33,7 @@ export class TaskComponent implements OnInit {
   isTouched = signal<boolean>(false);
   isTyping = signal<boolean>(false);
   typedValue = signal<string>('');
+  isDisquetteMode = signal<boolean>(false);
   editedTask = signal<ITask>({
     id: 0,
     text: '',
@@ -134,6 +135,7 @@ export class TaskComponent implements OnInit {
   checkboxClicked(task: ITask): void {
     this.isTouched.set(true); // This allows you to return to the edit note view
     this.editedTask.set(task);
+    this.isDisquetteMode.set(true);
     console.log(`Edited task`, this.editedTask);
   }
 

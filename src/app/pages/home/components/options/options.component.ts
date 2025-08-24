@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 export class OptionsComponent {
   isTyping = input<boolean>(false);
   typedValue = input<string>('');
+  isDisquetteMode = input<boolean>(false)
   disableOptions = computed(() => !this.isTyping());
   somethingTyped = signal<string>('');
   addAction = output<boolean>();

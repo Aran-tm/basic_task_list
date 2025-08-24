@@ -12,6 +12,13 @@
   <!-- Button Action Row -->
   <div class="flex gap-2 flex-column md:flex-row mt-4 md:mt-0">
     <p-button [ngClass]="'button-bg-cancel'" (click)="cancel()">Cancel</p-button>
-    <p-button [ngClass]="'button-bg-ok'" (click)="disableOptions() ? goBack() : add()">{{ disableOptions() ? 'Ok' : 'Add'}}</p-button>
+
+    @if(!isDisquetteMode()) {
+      <p-button [ngClass]="'button-bg-ok'" (click)="disableOptions() ? goBack() : add()">{{ disableOptions() ? 'Ok' : 'Add' }}</p-button>
+    } @else {
+      <p-button [ngClass]="'button-bg-ok'" (click)="goBack()">
+        <img src="/assets/icons/disquette-icon.svg" alt="">
+      </p-button>
+    }
   </div>
 </div>
