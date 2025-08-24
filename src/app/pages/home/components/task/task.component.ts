@@ -50,7 +50,6 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscribeObservers();
-    console.log(`editedTask`, this.editedTask());
   }
 
   // Subscribe to task changes
@@ -136,7 +135,6 @@ export class TaskComponent implements OnInit {
     this.isTouched.set(true); // This allows you to return to the edit note view
     this.editedTask.set(task);
     this.isDisquetteMode.set(true);
-    console.log(`Edited task`, this.editedTask);
   }
 
   /** Set the Edited Task Style */
@@ -165,9 +163,6 @@ export class TaskComponent implements OnInit {
         newHtml += `<span style="color: #2d3748 !important;">${word}</span>`;
       }
     });
-
-    console.log(`wordsArray`, wordsArray);
-    console.log(`newHtml`, newHtml);
 
     return newHtml;
   }

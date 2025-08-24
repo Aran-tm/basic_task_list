@@ -15,7 +15,7 @@ export class OptionsComponent {
   isTyping = input<boolean>(false);
   typedValue = input<string>('');
   isDisquetteMode = input<boolean>(false)
-  disableOptions = computed(() => !this.isTyping());
+  disableOptions = computed(() => !this.isTyping() && !this.isDisquetteMode());
   somethingTyped = signal<string>('');
   addAction = output<boolean>();
   buttons: IButton[] = [
