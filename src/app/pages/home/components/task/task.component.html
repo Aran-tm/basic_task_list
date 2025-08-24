@@ -17,11 +17,11 @@
   </div>
 
   <div class="flex flex-column gap-4">
-    @for (task of taskList; track task.text) {
-      <div class="flex align-items-center gap-2">
-        <p-checkbox [binary]="true" />
-        <div [innerHTML]="setTaskStyle(task.text) | safeHtml"></div>
-      </div>
+    @for (task of taskList; track task.id) {
+    <div class="flex align-items-center gap-2">
+      <p-checkbox (onChange)="checkboxClicked(task)" [binary]="true" />
+      <div [innerHTML]="setTaskStyle(task.text) | safeHtml"></div>
+    </div>
     }
   </div>
 </div>
@@ -41,6 +41,15 @@
     (sendTypedValue)="recieveTypedFunction($event)"
   />
 </p-card>
+
+<!-- Edited Task -->
+@if(editedTask().text.length > 0) {
+<div class="flex align-items-center gap-2" style="padding: 20px;">
+  <p-checkbox [binary]="true" />
+  <div [innerHTML]="editedTaskStyle(editedTask().text) | safeHtml"></div>
+</div>
+}
+
 <p-card class="secondCard">
   <app-options
     (addAction)="goBack($event)"
